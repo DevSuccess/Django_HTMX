@@ -1,22 +1,29 @@
 {% extends 'partials/base.html' %}
 
 {% block content %}
-<div class="align-center col-10 offset-1">
-    <div class="d-flex justify-content-between align-items-center">
-        <p class="lead ml-0">My Contact</p>
-        <form hx-post="{% url 'contact:create-contact' %}" hx-target="#contact-list" method="POST" class="d-flex align-items-center">
-            {% csrf_token %}
-            <label for="name" class="label-form">Nom</label>
-            <input type="text" id="name" name="name" class="form-control-sm mr-2" placeholder="Enter Name" hx-post="/check-name" hx-target="#name-exist" />
-            <label for="phone" class="label-form">Nom</label>
-            <input type="text" id="phone" name="phone" class="form-control-sm mr-2" placeholder="Enter Phone Number" />
-            <button hx-post="{% url 'contact:create-contact' %}" hx-target="#contact-list" type="submit" class="btn btn-success btn-sm">Save</button>
-        </form>
-    </div>
-    <hr>
-
-    <div id="contact-list">
-        {% include 'contact/contact-list.html' %}
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-10">
+            <div class="d-flex justify-content-between align-items-center">
+                <h4 class="mb-0">My Contact</h4>
+                <form hx-post="{% url 'contact:create-contact' %}" hx-target="#contact-list" method="POST" class="d-flex align-items-center">
+                    {% csrf_token %}
+                    <div class="form-group mb-0 me-2">
+                        <label for="name" class="form-label">Nom</label>
+                        <input type="text" id="name" name="name" class="form-control form-control-sm" placeholder="Enter Name" hx-post="/check-name" hx-target="#name-exist" />
+                    </div>
+                    <div class="form-group mb-0 me-2">
+                        <label for="phone" class="form-label">Phone</label>
+                        <input type="text" id="phone" name="phone" class="form-control form-control-sm" placeholder="Enter Phone Number" />
+                    </div>
+                    <button type="submit" class="btn btn-success btn-sm">Save</button>
+                </form>
+            </div>
+            <hr>
+            <div id="contact-list">
+                {% include 'contact/contact-list.html' %}
+            </div>
+        </div>
     </div>
 </div>
 {% endblock %}
