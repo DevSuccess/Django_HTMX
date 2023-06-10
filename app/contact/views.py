@@ -8,7 +8,7 @@ def create_contact(request):
     name = request.POST.get('name')
     phone = request.POST.get('phone')
 
-    contact = Contact.objects.create(name=name, phone=phone)
+    Contact.objects.create(name=name, phone=phone)
     contacts = Contact.objects.all()
 
     context = {
