@@ -8,13 +8,13 @@
                 <h4 class="mb-0">My Contact</h4>
                 <form hx-post="{% url 'contact:create-contact' %}" hx-target="#contact-list" method="POST" class="d-flex align-items-center">
                     {% csrf_token %}
-                    <div class="form-group mb-0 me-2">
-                        <label for="name" class="form-label">Nom</label>
-                        <input type="text" id="name" name="name" class="form-control form-control-sm" placeholder="Enter Name" hx-post="/check-name" hx-target="#name-exist" />
+                    <div class="input-group me-2">
+                        <label for="name" class="input-group-text">Nom</label>
+                        <input type="text" id="name" name="name" class="form-control" placeholder="Enter Name" hx-post="/check-name" hx-target="#name-exist" />
                     </div>
-                    <div class="form-group mb-0 me-2">
-                        <label for="phone" class="form-label">Phone</label>
-                        <input type="text" id="phone" name="phone" class="form-control form-control-sm" placeholder="Enter Phone Number" />
+                    <div class="input-group me-2">
+                        <label for="phone" class="input-group-text">Phone</label>
+                        <input type="text" id="phone" name="phone" class="form-control" placeholder="Enter Phone Number" />
                     </div>
                     <button type="submit" class="btn btn-success btn-sm">Save</button>
                 </form>
